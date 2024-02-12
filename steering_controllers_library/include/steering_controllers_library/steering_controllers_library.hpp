@@ -89,7 +89,7 @@ public:
   using AckermanControllerState = control_msgs::msg::SteeringControllerStatus;
 
 protected:
-  controller_interface::CallbackReturn set_interface_numbers(
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC controller_interface::CallbackReturn set_interface_numbers(
     size_t nr_state_itfs, size_t nr_cmd_itfs, size_t nr_ref_itfs);
 
   std::shared_ptr<steering_controllers_library::ParamListener> param_listener_;
@@ -112,9 +112,9 @@ protected:
   std::unique_ptr<ControllerStatePublisherTf> rt_tf_odom_state_publisher_;
 
   // override methods from ChainableControllerInterface
-  std::vector<hardware_interface::CommandInterface> on_export_reference_interfaces() override;
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC std::vector<hardware_interface::CommandInterface> on_export_reference_interfaces() override;
 
-  bool on_set_chained_mode(bool chained_mode) override;
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC bool on_set_chained_mode(bool chained_mode) override;
 
   /// Odometry:
   steering_odometry::SteeringOdometry odometry_;

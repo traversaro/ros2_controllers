@@ -26,6 +26,8 @@
 
 #include "rcpputils/rolling_mean_accumulator.hpp"
 
+#include "steering_controllers_library/visibility_control.h"
+
 namespace steering_odometry
 {
 const unsigned int BICYCLE_CONFIG = 0;
@@ -45,12 +47,14 @@ public:
    * \param velocity_rolling_window_size Rolling window size used to compute the velocity mean
    *
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   explicit SteeringOdometry(size_t velocity_rolling_window_size = 10);
 
   /**
    * \brief Initialize the odometry
    * \param time Current time
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   void init(const rclcpp::Time & time);
 
   /**
@@ -60,6 +64,7 @@ public:
    * \param dt      time difference to last call
    * \return true if the odometry is actually updated
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   bool update_from_position(
     const double traction_wheel_pos, const double steer_pos, const double dt);
 
@@ -71,6 +76,7 @@ public:
    * \param dt      time difference to last call
    * \return true if the odometry is actually updated
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   bool update_from_position(
     const double right_traction_wheel_pos, const double left_traction_wheel_pos,
     const double steer_pos, const double dt);
@@ -84,6 +90,7 @@ public:
    * \param dt      time difference to last call
    * \return true if the odometry is actually updated
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   bool update_from_position(
     const double right_traction_wheel_pos, const double left_traction_wheel_pos,
     const double right_steer_pos, const double left_steer_pos, const double dt);
@@ -95,6 +102,7 @@ public:
    * \param dt      time difference to last call
    * \return true if the odometry is actually updated
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   bool update_from_velocity(
     const double traction_wheel_vel, const double steer_pos, const double dt);
 
@@ -106,6 +114,7 @@ public:
    * \param dt      time difference to last call
    * \return true if the odometry is actually updated
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   bool update_from_velocity(
     const double right_traction_wheel_vel, const double left_traction_wheel_vel,
     const double steer_pos, const double dt);
@@ -119,6 +128,7 @@ public:
    * \param dt      time difference to last call
    * \return true if the odometry is actually updated
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   bool update_from_velocity(
     const double right_traction_wheel_vel, const double left_traction_wheel_vel,
     const double right_steer_pos, const double left_steer_pos, const double dt);
@@ -129,53 +139,62 @@ public:
    * \param angular Angular velocity [rad/s]
    * \param time    Current time
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   void update_open_loop(const double linear, const double angular, const double dt);
 
   /**
    * \brief Set odometry type
    * \param type odometry type
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   void set_odometry_type(const unsigned int type);
 
   /**
    * \brief heading getter
    * \return heading [rad]
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   double get_heading() const { return heading_; }
 
   /**
    * \brief x position getter
    * \return x position [m]
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   double get_x() const { return x_; }
 
   /**
    * \brief y position getter
    * \return y position [m]
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   double get_y() const { return y_; }
 
   /**
    * \brief linear velocity getter
    * \return linear velocity [m/s]
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   double get_linear() const { return linear_; }
 
   /**
    * \brief angular velocity getter
    * \return angular velocity [rad/s]
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   double get_angular() const { return angular_; }
 
   /**
    * \brief Sets the wheel parameters: radius, separation and wheelbase
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   void set_wheel_params(double wheel_radius, double wheelbase = 0.0, double wheel_track = 0.0);
 
   /**
    * \brief Velocity rolling window size setter
    * \param velocity_rolling_window_size Velocity rolling window size
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   void set_velocity_rolling_window_size(size_t velocity_rolling_window_size);
 
   /**
@@ -184,12 +203,14 @@ public:
    * \param theta_dot Desired angular velocity [rad/s]
    * \return Tuple of velocity commands and steering commands
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   std::tuple<std::vector<double>, std::vector<double>> get_commands(
     const double Vx, const double theta_dot);
 
   /**
    *  \brief Reset poses, heading, and accumulators
    */
+  STEERING_CONTROLLERS__VISIBILITY_PUBLIC
   void reset_odometry();
 
 private:
