@@ -121,8 +121,10 @@ protected:
   std::unique_ptr<ControllerStatePublisher> state_publisher_;
 
   // override methods from ChainableControllerInterface
+  PID_CONTROLLER__VISIBILITY_PUBLIC
   std::vector<hardware_interface::CommandInterface> on_export_reference_interfaces() override;
 
+  PID_CONTROLLER__VISIBILITY_PUBLIC
   bool on_set_chained_mode(bool chained_mode) override;
 
   // internal methods

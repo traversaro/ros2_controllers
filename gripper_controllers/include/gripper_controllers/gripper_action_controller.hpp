@@ -148,15 +148,20 @@ protected:
 
   rclcpp::TimerBase::SharedPtr goal_handle_timer_;
 
+  GRIPPER_ACTION_CONTROLLER_PUBLIC
   rclcpp_action::GoalResponse goal_callback(
     const rclcpp_action::GoalUUID & uuid, std::shared_ptr<const GripperCommandAction::Goal> goal);
 
+  GRIPPER_ACTION_CONTROLLER_PUBLIC
   rclcpp_action::CancelResponse cancel_callback(const std::shared_ptr<GoalHandle> goal_handle);
 
+  GRIPPER_ACTION_CONTROLLER_PUBLIC
   void accepted_callback(std::shared_ptr<GoalHandle> goal_handle);
 
+  GRIPPER_ACTION_CONTROLLER_PUBLIC
   void preempt_active_goal();
 
+  GRIPPER_ACTION_CONTROLLER_PUBLIC
   void set_hold_position();
 
   rclcpp::Time last_movement_time_ = rclcpp::Time(0, 0, RCL_ROS_TIME);  ///< Store stall time
@@ -165,6 +170,7 @@ protected:
   /**
    * \brief Check for success and publish appropriate result and feedback.
    **/
+  GRIPPER_ACTION_CONTROLLER_PUBLIC
   void check_for_success(
     const rclcpp::Time & time, double error_position, double current_position,
     double current_velocity);

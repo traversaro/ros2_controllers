@@ -88,9 +88,13 @@ public:
     const rclcpp_lifecycle::State & previous_state) override;
 
 protected:
+  JOINT_STATE_BROADCASTER_PUBLIC
   bool init_joint_data();
+  JOINT_STATE_BROADCASTER_PUBLIC
   void init_joint_state_msg();
+  JOINT_STATE_BROADCASTER_PUBLIC
   void init_dynamic_joint_state_msg();
+  JOINT_STATE_BROADCASTER_PUBLIC
   bool use_all_available_interfaces() const;
 
 protected:

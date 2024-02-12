@@ -44,7 +44,9 @@ public:
   MultiInterfaceForwardCommandController();
 
 protected:
+  FORWARD_COMMAND_CONTROLLER_PUBLIC
   void declare_parameters() override;
+  FORWARD_COMMAND_CONTROLLER_PUBLIC
   controller_interface::CallbackReturn read_parameters() override;
 
   using Params = multi_interface_forward_command_controller::Params;

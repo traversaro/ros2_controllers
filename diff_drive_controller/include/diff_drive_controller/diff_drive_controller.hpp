@@ -98,8 +98,9 @@ protected:
     std::reference_wrapper<const hardware_interface::LoanedStateInterface> feedback;
     std::reference_wrapper<hardware_interface::LoanedCommandInterface> velocity;
   };
-
+  DIFF_DRIVE_CONTROLLER_PUBLIC
   const char * feedback_type() const;
+  DIFF_DRIVE_CONTROLLER_PUBLIC
   controller_interface::CallbackReturn configure_side(
     const std::string & side, const std::vector<std::string> & wheel_names,
     std::vector<WheelHandle> & registered_handles);
@@ -155,8 +156,9 @@ protected:
   rclcpp::Time previous_publish_timestamp_{0, 0, RCL_CLOCK_UNINITIALIZED};
 
   bool is_halted = false;
-
+  DIFF_DRIVE_CONTROLLER_PUBLIC
   bool reset();
+  DIFF_DRIVE_CONTROLLER_PUBLIC
   void halt();
 };
 }  // namespace diff_drive_controller

@@ -271,6 +271,7 @@ protected:
     const rclcpp::Time & time, const JointTrajectoryPoint & desired_state,
     const JointTrajectoryPoint & current_state, const JointTrajectoryPoint & state_error);
 
+  JOINT_TRAJECTORY_CONTROLLER_PUBLIC
   void read_state_from_state_interfaces(JointTrajectoryPoint & state);
 
   /** Assign values from the command interfaces as state.
@@ -279,9 +280,12 @@ protected:
    * @param[out] state to be filled with values from command interfaces.
    * @return true if all interfaces exists and contain non-NaN values, false otherwise.
    */
+  JOINT_TRAJECTORY_CONTROLLER_PUBLIC
   bool read_state_from_command_interfaces(JointTrajectoryPoint & state);
+  JOINT_TRAJECTORY_CONTROLLER_PUBLIC
   bool read_commands_from_command_interfaces(JointTrajectoryPoint & commands);
 
+  JOINT_TRAJECTORY_CONTROLLER_PUBLIC
   void query_state_service(
     const std::shared_ptr<control_msgs::srv::QueryTrajectoryState::Request> request,
     std::shared_ptr<control_msgs::srv::QueryTrajectoryState::Response> response);

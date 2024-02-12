@@ -44,7 +44,9 @@ public:
   ForwardCommandController();
 
 protected:
+  FORWARD_COMMAND_CONTROLLER_PUBLIC
   void declare_parameters() override;
+  FORWARD_COMMAND_CONTROLLER_PUBLIC
   controller_interface::CallbackReturn read_parameters() override;
 
   std::shared_ptr<ParamListener> param_listener_;
