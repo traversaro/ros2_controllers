@@ -4,6 +4,7 @@ project(ackermann_steering_controller LANGUAGES CXX)
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
   add_compile_options(-Wall -Wextra -Wpedantic -Wconversion)
 endif()
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 # find dependencies
 set(THIS_PACKAGE_INCLUDE_DEPENDS
