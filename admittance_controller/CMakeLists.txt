@@ -7,6 +7,8 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
                       -Werror=missing-braces)
 endif()
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 set(THIS_PACKAGE_INCLUDE_DEPENDS
   angles
   control_msgs
